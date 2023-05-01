@@ -135,6 +135,7 @@ const products = [{
   },
 ];
 
+export default products
 
 const formattedProducts = products.map((product) => {
   return {

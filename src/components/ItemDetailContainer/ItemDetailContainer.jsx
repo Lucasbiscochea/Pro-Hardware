@@ -5,8 +5,7 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({})
-    
+    const [product, setProduct] = useState([]);
     const { itemId } = useParams()
   
     useEffect(() => {
@@ -21,9 +20,19 @@ const ItemDetailContainer = () => {
 
     return(
         <div className='ItemDetailContainer'>
-            <ItemDetail product={product} />
-        </div>
-    )
+        {
+        product.map( product =>(
+          <ItemDetail
+          key={product.id}
+        id={product.id}
+        image={product.image}
+        brand={product.brand}
+        price={product.price}
+        cuota={product.price}
+      />
+    ))}
+  </div>
+);
     
 }
 
