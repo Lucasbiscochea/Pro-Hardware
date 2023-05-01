@@ -1,0 +1,13 @@
+.ListGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .ListGroup {
+    flex-direction: column;
+    align-items: center;
+    }
+}

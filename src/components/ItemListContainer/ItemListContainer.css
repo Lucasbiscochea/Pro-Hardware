@@ -1,0 +1,9 @@
+.saludo{
+    height: auto;
+}
+
+.saludo h1{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
