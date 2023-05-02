@@ -137,12 +137,12 @@ const products = [{
 
 export default products
 
-const formattedProducts = products.map((product) => {
-  return {
-    ...product,
-    price: product.price.toLocaleString(),
-  };
-});
+// const formattedProducts = products.map((product) => {
+//   return {
+//     ...product,
+//     price: product.price.toLocaleString(),
+//   };
+// });
 
 
 

@@ -22,7 +22,10 @@ const ItemListContainer = ({greeting}) => {
         })
   }, [categoryId]);
 
+  console.log(products);
+
   return (
+    
     <div className='saludo'>
       <h1>{greeting}</h1>
       <ItemList products={products}/>

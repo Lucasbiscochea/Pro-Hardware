@@ -16,6 +16,7 @@
     font-size: 21px;
     margin: 15px;
     color: #ffffff;
+    text-decoration: none;
   }
   
   .Navbar > .nav-menu  > a {
@@ -48,6 +49,9 @@
   
   .Navbar > .nav-toggle {
     display: none;
+  }
+  .Navbar > .nav-menu > .cart{
+    text-decoration: none;
   }
 
 @media (max-width: 820px) {

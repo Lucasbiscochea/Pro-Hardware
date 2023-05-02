@@ -8,7 +8,7 @@ const NavBar = () => {
 
   return (
     <div className="Navbar">
-      <span className="nav-logo">ProHardware</span>
+      <NavLink to={"/"} className="nav-logo">ProHardware</NavLink>
       <div className={`nav-menu ${isOpen && "open"}`}>
         <NavLink to={'/category/Procesador'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Procesadores</NavLink>
         <NavLink to={'/category/MotherBoard'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>MotherBoard</NavLink>

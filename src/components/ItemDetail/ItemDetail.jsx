@@ -1,39 +1,33 @@
-import React, {useState, useEffect} from 'react'
-import { getProductsByCategory} from '../../Asyncmock'
-import { useParams } from 'react-router-dom'
-import MoonLoader from "react-spinners/ClipLoader";
+import { useNavigate } from "react-router-dom";
+import "./ItemDetail.css"
+import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = () => {
-  const [ products, setProducts ] = useState([]);
-  const { IdItem } = useParams ();
 
-  useEffect(() => {
-
-    setProducts([])
-
-    getProductsByCategory(products.filter(flt => flt.id == IdItem),2000)
-    .then(resp => setProducts(resp))
-    .catch(error => console.log(error))
-  }, [IdItem])
-
+const ItemDetail = ({ category, brand, description, price, image, cuota }) => {
+  const navigate = useNavigate()
+  console.log (description)
   return (
-    <div className='ItemDetail'>
-      {    
-        (products.length === 0) ? <MoonLoader color="#5b00fb" /> 
-        : products.map((items) => (
-          <><div className='ContainerLeft'>
-            <Image
-              image={items.image} />
+    <div className="detailsContainer">
+      <div className='CardItemDetail'>
+        <div className="big-img">
+          <img src={image} alt={category} className='ImgDetail' />
+        </div>
+        <div className="box">
+          <div className="row">
+            <h2>{brand}</h2>
+          <span>${price}</span>
+          <p>{cuota}</p>
+          <p className="descripdetalle">{description}</p>
+          <button className="addCart" onClick={()=> navigate(-1)}>← Volver</button>
+          <ItemCount initial={1} stock={10} onAdd={() => console.log("added to cart")} />
           </div>
-          <div className='containerRigth'>
-            <p>
-              Descripcion
-            </p>
-            </div></>
-        ))
-      }
+
+          
+          
+      </div>
     </div>
-  );
+  </div>  
+  )
 }
 
-export default ItemDetail
+export default ItemDetail;
