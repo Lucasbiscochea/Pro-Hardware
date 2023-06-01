@@ -1,12 +1,17 @@
+import './assets/svg-gobbler.svg'
+import { useContext } from 'react'
 import cart from './assets/svg-gobbler.svg'
 import './CartWidget.css'
+import { CartContext } from '../../Context/Context'
+import { Link } from 'react-router-dom'
 
 const CartWidget = () => {
+    const { totalQuantity } = useContext (CartContext)
     return (
-        <div className="cart">
-            <img src= {cart} alt='cart-widget'/>
-            0
-        </div>
+       <Link to='/cart' className='CartWidget' style={{ display: totalQuantity > 0 ? 'block' : 'none' }}>
+            <img className='CartImg' src={cart} alt="cart-widget" />
+            { totalQuantity }
+       </Link>
     )
 }
 

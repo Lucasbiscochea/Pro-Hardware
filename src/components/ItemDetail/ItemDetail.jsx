@@ -1,9 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./ItemDetail.css"
 import ItemCount from "../ItemCount/ItemCount";
+import { useContext, useState } from "react";
+import { CartContext } from "../../Context/Context";
 
 
-const ItemDetail = ({ category, brand, description, price, image, cuota }) => {
+const ItemDetail = ({ id, category, brand, description, price, image, cuota }) => {
+  const [quantityAdded, setQuantityAdded] = useState(0)
+  const stock = 100;
+  const { addItem } = useContext(CartContext)
+
+  const handleOnAdd = (quantity) => {
+      setQuantityAdded(quantity)
+
+      const Item = {
+        id, brand, price, image, category
+      }
+      addItem(Item, quantity)
+  }
+
+
+
+
   const navigate = useNavigate()
   console.log (description)
   return (
@@ -18,12 +36,18 @@ const ItemDetail = ({ category, brand, description, price, image, cuota }) => {
           <span>${price}</span>
           <p>{cuota}</p>
           <p className="descripdetalle">{description}</p>
-          <button className="addCart" onClick={()=> navigate(-1)}>← Volver</button>
-          <ItemCount initial={1} stock={10} onAdd={() => console.log("added to cart")} />
           </div>
+            <div>
+              {
+                quantityAdded > 0 ? (
+                          <Link to='/cart' className="addCart" >Terminar Compra</Link>
+                ) : (
 
-          
-          
+                          <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
+                )
+              }
+              <button onClick={() => navigate(-1)} className="addCart">Volver</button>
+            </div>          
       </div>
     </div>
   </div>  

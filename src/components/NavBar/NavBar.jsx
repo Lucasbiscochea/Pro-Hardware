@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
 
@@ -15,9 +15,9 @@ const NavBar = () => {
         <NavLink to={'/category/Tarjetas-de-video'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Tarjetas de Video</NavLink>
         <NavLink to={'/category/Memoria-Ram'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Memoria Ram</NavLink>
         <NavLink to={'/category/Fuentes'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Fuentes</NavLink>
-        <Link className="cart">
+        <NavLink to={'/category/cart'} className="cart">
           <CartWidget />
-        </Link>
+        </NavLink>
       </div>
       <div
         className={`nav-toggle ${isOpen && "open"}`}

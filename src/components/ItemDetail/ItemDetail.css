@@ -41,19 +41,19 @@
 }
 
 .row{
-  margin-top: 20px; /* agregar un margen top */
+  margin-top: 20px; 
   padding: 20px;
 }
 
 .box h2 {
-  font-size: 24px; /* aumentar el tamaño de la fuente */
+  font-size: 24px; 
   font-weight: 600;
   color: #a09f9f;
-  margin-bottom: 50px; /* agregar un margen bottom */
+  margin-bottom: 50px; 
 }
 
 .box span {
-  font-size: 36px; /* aumentar el tamaño de la fuente */
+  font-size: 36px; 
   font-weight: 600;
   color: #a09f9f;
 }
@@ -93,6 +93,7 @@
   animation: glowing 1s ease-in-out infinite;
 
 }
+
 
 @keyframes glowing {
   0% {
