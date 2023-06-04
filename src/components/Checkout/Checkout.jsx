@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { CartContext } from '../../Context/Context';
 import CartItem from '../CartItem/CartItem';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
-// import { writeBatch, serverTimestamp } from 'firebase/firestore';
-// import { db } from '../../firebase';
+import { writeBatch, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../Services/firebase/firebaseConfig';
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const Checkout = () => {
 
         // Actualizar stock de productos y construir la lista de productos sin stock suficiente
         orderObj.items.forEach((item) => {
-            const itemRef = db.collection('items').doc(item.id);
+            const itemRef = db.collection('Items').doc(item.id);
             batch.update(itemRef, { stock: item.stock - item.quantity });
 
             if (item.stock < item.quantity) {

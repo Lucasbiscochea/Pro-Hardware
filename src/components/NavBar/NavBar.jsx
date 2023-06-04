@@ -15,9 +15,8 @@ const NavBar = () => {
         <NavLink to={'/category/Tarjetas-de-video'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Tarjetas de Video</NavLink>
         <NavLink to={'/category/Memoria-Ram'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Memoria Ram</NavLink>
         <NavLink to={'/category/Fuentes'} className={({isActive})=> isActive ? 'isOption' : 'Option'}>Fuentes</NavLink>
-        <NavLink to={'/category/cart'} className="cart">
           <CartWidget />
-        </NavLink>
+
       </div>
       <div
         className={`nav-toggle ${isOpen && "open"}`}
